@@ -8,10 +8,25 @@ def graph_obj_init():
   return G 
 
 
+def find(name, path):
+  for root, dirs, files in os.walk(path):
+    if name in files:
+      return os.path.join(root, name)
+
+
+def root_folder():
+  path = os.getcwd()
+  while os.path.basename(path) != 'tsp':
+    path = os.path.split(path)[0]
+  result = os.path.split(path)[0]
+  return result
+
+
 def parse():
-  os.chdir('../data/')
-  main_tree = ET.parse('a280.xml')
-  vertex_list = main_tree.getiterator('vertex')
+  path = root_folder()
+  final_path = find('a280.xml', path)
+  main_tree = ET.parse(final_path)
+  vertex_list = list(main_tree.iter('vertex'))
   
   return vertex_list
 
@@ -51,8 +66,3 @@ def add_edges_to_graph(graph_obj, vertex_list):
   
 def _node_naming(num):
   return 'N' + str(num)
-
-'''
-if __name__ == "__main__":
-  parse()  
-'''
