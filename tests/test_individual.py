@@ -9,7 +9,8 @@ weighted_edges = [('N0', 'N1', 1), ('N0', 'N2', 2), ('N0', 'N3', 3),
                   ('N1', 'N2', 4), ('N1', 'N3', 5), ('N2', 'N3', 6)]
 G.add_nodes_from(nodes)
 G.add_weighted_edges_from(weighted_edges)
-  
+
+ 
 def test_individual_class():
   graph_obj = G
 
