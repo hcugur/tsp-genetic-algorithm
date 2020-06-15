@@ -23,7 +23,8 @@ def test_create_genes():
   graph_obj = G
 
   individual = Individual(graph_obj)
-  genes_list = individual.create_genes()
+  individual.create_random_genes()
+  genes_list = individual.get_genes_list()
 
   assert genes_list.count('N1') == 1 and genes_list.count('N2') == 1 and genes_list.count('N3') == 1 and genes_list.count('N0') == 2
   assert genes_list[0] == 'N0' and genes_list[-1] == 'N0'
@@ -33,15 +34,17 @@ def test_calculate_fitness():
   graph_obj = G
 
   individual = Individual(graph_obj)
+  individual.create_custom_genes(['N0', 'N1', 'N2', 'N3'])
   individual.calculate_fitness()
 
-  assert individual.fitness > 0
+  assert individual.fitness == 11
 
 
 def test_get_genes_list():
   graph_obj = G
 
   individual = Individual(graph_obj)
+  individual.create_random_genes()
   genes_list = individual.get_genes_list()
 
   assert genes_list.count('N1') == 1 and genes_list.count('N2') == 1 and genes_list.count('N3') == 1 and genes_list.count('N0') == 2
@@ -52,6 +55,7 @@ def test_get_fitness():
   graph_obj = G
 
   individual = Individual(graph_obj)
+  individual.create_random_genes()
   individual.calculate_fitness()
   fitness = individual.get_fitness()
 

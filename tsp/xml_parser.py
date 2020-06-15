@@ -22,18 +22,18 @@ def root_folder():
   return result
 
 
-def parse():
+def parse(filename):
   path = root_folder()
-  final_path = find('a280.xml', path)
+  final_path = find(filename, path)
   main_tree = ET.parse(final_path)
   vertex_list = list(main_tree.iter('vertex'))
   
   return vertex_list
 
 
-def graph_obj_assemble():
+def graph_obj_assemble(filename):
   graph_obj = graph_obj_init()
-  vertex_list = parse()
+  vertex_list = parse(filename)
 
   node_list = _create_node_list(vertex_list)
   add_nodes_to_graph(graph_obj, node_list)

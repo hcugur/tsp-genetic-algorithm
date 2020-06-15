@@ -1,4 +1,3 @@
-import pytest
 from tsp.tsp.xml_parser import (
   graph_obj_init,
   parse,
@@ -14,13 +13,13 @@ def test_graph_obj_init():
 
 
 def test_parse():
-  vertex_list = parse()
+  vertex_list = parse('a280.xml')
   assert len(vertex_list) > 0
   assert vertex_list[0].tag == 'vertex'
 
 
 def test_create_node_list():
-  vertex_list = parse()
+  vertex_list = parse('a280.xml')
   node_list = _create_node_list(vertex_list)
   number_of_nodes = len(node_list)
   lower_bound = 'N' + str(0)
@@ -38,7 +37,7 @@ def test_node_naming():
 
 
 def test_graph_obj_assemble():
-  graph_obj = graph_obj_assemble()
+  graph_obj = graph_obj_assemble('a280.xml')
   assert graph_obj.has_node('N0')
   assert graph_obj.has_node('N279')
   assert graph_obj.has_edge('N0', 'N1')

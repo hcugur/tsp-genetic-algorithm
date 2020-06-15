@@ -11,7 +11,24 @@ class Population:
 
   def initialize_population(self, graph_obj):
     for _ in range(self.population_size):
-      self.individuals.append(Individual(graph_obj))
+      individual = Individual(graph_obj)
+      individual.create_random_genes()
+      self.individuals.append(individual)
+
+
+  def add_individual(self, individ):
+    self.individuals.append(individ)
+
+
+  def get_gene_list_of_individual(self, index):
+    return self.individuals[index].get_genes_list()
+
+
+  def remove_individual(self, index):
+    if index >= 0 and index < len(self.individuals):
+      del self.individuals[index]
+    else:
+      raise Exception("Index out of boundries!")
 
 
   def calculate_fitness(self):
@@ -20,7 +37,19 @@ class Population:
 
 
   def get_fittest_individual(self):
-    return min(self.individuals, key=lambda x: x.get_fitness()).get_fitness()
+    return min(self.individuals, key=lambda x: x.get_fitness())
+
+
+  def get_population_size(self):
+    return self.population_size
+
+
+  def get_individual_fitnesses(self):
+    fitnesses = []
+    n = self.get_population_size()
+    for i in range(n):
+      fitnesses.append(self.individuals[i].fitness)
+    return fitnesses
 
 '''
 if __name__ == "__main__":

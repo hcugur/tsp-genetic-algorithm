@@ -19,7 +19,7 @@ def test_initialize_population():
   p = Population()
   p.initialize_population(G)
 
-  assert len(p.individuals) > 0
+  assert len(p.individuals) == 25
 
 
 def test_calculate_fitness():
@@ -35,6 +35,6 @@ def test_get_fittest_individual():
   p.initialize_population(G)
   p.calculate_fitness()
 
-  fittest = p.get_fittest_individual()
-
+  fittest = p.get_fittest_individual().get_fitness()
+  
   assert fittest == min(p.individuals, key=lambda x: x.get_fitness()).get_fitness()
