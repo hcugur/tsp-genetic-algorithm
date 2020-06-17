@@ -10,9 +10,14 @@ As the objective, trying to find the optimal route. To learn more about [travell
 ## Benchmark Problems
 The program uses TSPLIB symmetric TSP problem samples in XML format. Sample files must be in ```/data``` folder and they must be in XML format.
 To access other sample problems go to [benchmark problems in XML format](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/XML-TSPLIB/instances/).
-Although most of the problems here are symmetric TSPs, careful not to choose other problem types. TSPLIB symmetric TSP benchmark problems list can be accessed 
-[here](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/). If one wants to use custom problems, then the data must be converted to XML format.
-Descriptions of TSPLIB XML format is [here](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/XML-TSPLIB/Description.pdf).
+
+Although most of the problems here are symmetric TSPs, careful not to choose other problem types. 
+
+TSPLIB symmetric TSP benchmark problems list can be accessed [here](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/). 
+
+The best-known solutions of the symmetric travelling salesman problem TSPLIB benchmark problems can be found [here](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/STSP.html).
+
+If one wants to use custom problems, then the data must be converted to XML format. Descriptions of TSPLIB XML format is [here](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/XML-TSPLIB/Description.pdf).
 
 
 ## Genetic Algorithm
