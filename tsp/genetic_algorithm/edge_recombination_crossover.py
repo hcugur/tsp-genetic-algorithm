@@ -4,15 +4,12 @@ import random
 
 def get_neighbors(parent_1, parent_2):
   result = {}
-  #print('Original get neighbors parent 1: ', parent_1)
-  #print('Original get neighbors parent 2: ', parent_2)
   parent_1 = copy.copy(parent_1)
   parent_2 = copy.copy(parent_2)
   parent_1.pop()
   parent_2.pop()
-  #print('Sinful get neighbors parent 1: ', parent_1)
-  #print('Sinful get neighbors parent 2: ', parent_2)
   n = len(parent_1)
+  
   for i in range(n):
     temp_list = []
 
@@ -23,6 +20,7 @@ def get_neighbors(parent_1, parent_2):
     temp_list.append(parent_1[next_index])
 
     result[parent_1[i]] = temp_list
+  
   for i in range(n):
     prev_index = (i - 1) % n
     next_index = (i + 1) % n
@@ -42,10 +40,12 @@ def assemble_child_chromosome(neighbor_list, first_element):
   element = first_element
   i = 0
   count = len(neighbors)
+  
   while i < count:
     i += 1
     result.append(element)
     remove_item_from_neighbors(element, neighbors)
+    
     if not neighbors[element]:
         key_list.remove(element)
         if key_list:
@@ -57,7 +57,9 @@ def assemble_child_chromosome(neighbor_list, first_element):
       new_element = _find_fewest_neighbor(element, neighbors)
 
     element = new_element
+
   result.append(first_element)
+  
   return result
 
 
@@ -71,12 +73,14 @@ def _populate_key_list(neighbor_list):
 def _find_fewest_neighbor(cur_key, neighbor_list):
   neighbors = neighbor_list[cur_key]
   neighbor_numbers = []
+  
   for item in neighbors:
     neighbor_numbers.append(len(neighbor_list[item]))
-  #minimum = min(neighbor_numbers)
+  
   min_index = _get_minimum_index(neighbor_numbers)
 
   return neighbors[min_index]
+
 
 def _get_minimum_index(lst):
   n = len(lst)
@@ -87,7 +91,6 @@ def _get_minimum_index(lst):
   
 
 def remove_item_from_neighbors(item, neighbor_list):
-  #del neighbor_list[item]
   for key in neighbor_list:
     try:
       neighbor_list[key].remove(item)

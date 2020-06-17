@@ -1,4 +1,5 @@
 from tsp.tsp.genetic_algorithm.individual import Individual
+
 import networkx as nx
 
 
@@ -47,21 +48,8 @@ class Population:
   def get_individual_fitnesses(self):
     fitnesses = []
     n = self.get_population_size()
+    
     for i in range(n):
       fitnesses.append(self.individuals[i].fitness)
+    
     return fitnesses
-
-'''
-if __name__ == "__main__":
-  G = nx.Graph()
-  nodes = ['N0', 'N1', 'N2', 'N3']
-  weighted_edges = [('N0', 'N1', 1), ('N0', 'N2', 2), ('N0', 'N3', 3),
-                    ('N1', 'N2', 4), ('N1', 'N3', 5), ('N2', 'N3', 6)]
-  G.add_nodes_from(nodes)
-  G.add_weighted_edges_from(weighted_edges)
-
-  p = Population(pop_size=10)
-  p.initialize_population(G)
-  p.calculate_fitness()
-  p.get_fittest_individual()
-'''

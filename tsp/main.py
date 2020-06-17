@@ -1,9 +1,11 @@
+import sys
+
 from tsp.tsp.genetic_algorithm.genetic_algorithm import GeneticAlgorithm
 from tsp.tsp.xml_parser import graph_obj_assemble
 
-import sys
 
 filename = sys.argv[1]
+
 try:
   generation_count = int(sys.argv[2])
 except:
@@ -18,11 +20,7 @@ try:
   pop_size = int(sys.argv[4])
 except:
   pass
-'''
-print('Filename: ', filename)
-print('Iteration count: ', iteration_count)
 
-'''
 graph_obj = graph_obj_assemble(filename)
 
 

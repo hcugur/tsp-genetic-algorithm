@@ -14,6 +14,7 @@ import copy
 parent_1 = ['N0', 'N1', 'N5', 'N3', 'N4', 'N2', 'N0']
 parent_2 = ['N0', 'N2', 'N3', 'N5', 'N1', 'N4', 'N0']
 
+
 neighbors_dict = {
   'N0': ['N2', 'N1', 'N4'],
   'N1': ['N0', 'N5', 'N4'],
@@ -23,14 +24,10 @@ neighbors_dict = {
   'N5': ['N1', 'N3']
 }
 
+
 amounts_1 = [7, 6, 2, 3, 1, 2, 5]
 amounts_2 = [7, 6, 1, 3, 1, 2, 5]
 
-
-'''
-parent_1 = ['A', 'B', 'F', 'E', 'D', 'G', 'C']
-parent_2 = ['G', 'F', 'A', 'B', 'C', 'D', 'E']
-'''
 
 def test_get_neighbors():
   neighbors = get_neighbors(parent_1, parent_2)
