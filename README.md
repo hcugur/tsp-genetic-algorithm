@@ -1,4 +1,4 @@
-# Symmetric Travelling Salesman Problem (TSP) with Genetic Algorithm
+# A Genetic Algorithm for Symmetric Travelling Salesman Problem (TSP)
 
 
 ## Travelling Salesman Problem
