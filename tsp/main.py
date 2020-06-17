@@ -5,9 +5,9 @@ import sys
 
 filename = sys.argv[1]
 try:
-  iteration_count = int(sys.argv[2])
+  generation_count = int(sys.argv[2])
 except:
-  iteration_count = 750
+  generation_count = 750
 
 try:
   mut_rate = float(sys.argv[3])
@@ -41,7 +41,7 @@ ga.calculate_fitness()
 print('Initial generation fittest individual: ', ga.get_fittest_individual_fitness_val())
 
 
-for _ in range(iteration_count):
+for _ in range(generation_count):
   ga.selection()
   ga.crossover()
   ga.mutation()
